@@ -1,8 +1,11 @@
 {% extends 'todo/base.html' %}
 
 {% block content %}
+  <a href="{% url 'task-new' %}">新規作成</a>
   {% for task in object_list %}
-    <h3>{{ task.title }}</h3>
+    <h3><a href="{% url 'task-detail' task.pk %}">{{ task.title }}</a></h3>
     <p>{{ task.deadline }}</p>
+    <a href="{% url 'task-edit' task.pk %}">編集</a>
+    <a href="{% url 'task-delete' task.pk %}">削除</a>
   {% endfor %}
 {% endblock %}
