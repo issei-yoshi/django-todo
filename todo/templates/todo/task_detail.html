@@ -4,6 +4,8 @@
   <h2>{{ task.title }}</h2>
   <p>{{ task.description }}</p>
   <p>{{ task.deadline }}</p>
-  <a href="{% url 'task-edit' task.pk %}">編集</a>
-  <a href="{% url 'task-delete' task.pk %}">削除</a>
+  {% if user.is_authenticated %}
+    <a href="{% url 'task-edit' task.pk %}">編集</a>
+    <a href="{% url 'task-delete' task.pk %}">削除</a>
+  {% endif %}
 {% endblock %}
