@@ -1,7 +1,11 @@
-<form action="" method="POST">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <input type="submit" value="送信">
-</form>
+{% extends 'todo/base.html' %}
+
+{% block content %}
+  <form action="" method="POST">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <input type="submit" value="送信">
+  </form>
+{% endblock %}
